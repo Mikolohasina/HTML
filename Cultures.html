@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Culture Malgache</title>
+  <style>
+    /* ============================
+    CULTURES.CSS — CSS INDEPENDANT
+    (Même charte couleur que index.html)
+   ============================ */
+
+/* RESET */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+.round-img {
+    width: 50px;       /* taille de l'image */
+    height: 50px;      /* doit être égale pour faire un cercle parfait */
+    object-fit: cover;  /* recadre proprement sans déformer */
+    border-radius: 50%; /* rend l'image ronde */
+  }
+
+/* BODY / LAYOUT */
+body {
+  font-family: "Segoe UI", Arial, sans-serif;
+  background: linear-gradient(135deg, #001f3f, #003330);
+  color: #eee;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* HEADER */
+header {
+  background: linear-gradient(120deg, #003322, #001f3f);
+  padding: 20px 50px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 4px solid gold;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.5);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  border-bottom-left-radius: 25px;
+  border-bottom-right-radius: 25px;
+  flex-wrap: wrap;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 10px;
+}
+.logo img {
+  width: 50px;
+  height: 50px;
+}
+.logo h1 {
+  font-size: 1.6rem;
+  font-weight: bold;
+  color: gold;
+  letter-spacing: 1px;
+}
+
+/* NAVIGATION */
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 15px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+nav a {
+  text-decoration: none;
+  color: white;
+  font-weight: 500;
+  padding: 8px 14px;
+  border-radius: 8px;
+  transition: 0.3s;
+  font-size: 0.95rem;
+}
+nav a:hover,
+nav a.active {
+  background: gold;
+  color: #001f3f;
+  font-weight: bold;
+  box-shadow: 0 4px 10px rgba(255,215,0,0.6);
+}
+
+/* DROPDOWN */
+.dropdown { position: relative; }
+.dropdown-menu {
+  display: none;
+  position: absolute;
+  top: 35px;
+  left: 0;
+  background: #002b36;
+  border-radius: 10px;
+  box-shadow: 0 6px 15px rgba(0,0,0,0.5);
+  overflow: hidden;
+}
+.dropdown-menu li { width: 180px; }
+.dropdown-menu a { display:block; padding:10px 12px; color: gold; }
+.dropdown-menu a:hover { background:#003322; color: white; }
+.dropdown:hover .dropdown-menu { display:block; }
+
+/* SIDE IMAGE (pour section 1) */
+.side-image {
+  position: fixed;
+  left: 0;
+  top: 120px;
+  width: 22%;
+  height: 80%;
+  background: #002b36;
+  border-right: 3px solid gold;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+  z-index: 200;
+}
+.side-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 12px;
+}
+
+/* MAIN CONTENT */
+.content {
+  padding: 40px 20px;
+  flex: 1;
+  margin-left: 24%; /* laisse place à side-image */
+  max-width: 1100px;
+}
+
+/* TITLES / TEXT */
+.content h2 {
+  font-size: 2rem;
+  color: gold;
+  margin-bottom: 15px;
+}
+.content h3 {
+  font-size: 1.3rem;
+  color: #66ffcc;
+  margin-bottom: 20px;
+}
+.content p {
+  font-size: 1.1rem;
+  color: #ddd;
+  line-height: 1.5;
+  margin-bottom: 16px;
+}
+
+/* CONTENT BOX */
+.content-box {
+  background: #002b36;
+  border-radius: 15px;
+  padding: 25px;
+  margin-bottom: 30px;
+  box-shadow: 0 8px 18px rgba(0,0,0,0.5);
+  border: 2px solid rgba(255,215,0,0.12);
+}
+
+/* TITRES DANS BOXES */
+.content-box h2,
+.content-box h3 {
+  color: gold;
+  margin-bottom: 12px;
+}
+
+/* PARAGRAPHS & LISTS */
+.content-box p,
+.content-box li {
+  color: #ddd;
+  line-height: 1.5;
+  margin-bottom: 8px;
+}
+ul { padding-left: 20px; }
+
+/* TEXT + IMAGE (section 1) */
+.text-img {
+  display: flex;
+  gap: 20px;
+  align-items: flex-start;
+  flex-wrap: wrap;
+}
+.text-img .text {
+  flex: 2;
+}
+.text-img .image {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.text-img .image img {
+  width: 100%;
+  max-width: 360px;
+  border-radius: 12px;
+  object-fit: cover;
+  box-shadow: 0 6px 16px rgba(0,0,0,0.6);
+}
+
+/* IMAGE GRIDS */
+.image-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 15px;
+  margin-top: 15px;
+}
+.image-grid-4 {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 15px;
+  margin-top: 15px;
+}
+
+/* FIGURE STYLING */
+figure {
+  margin: 0;
+  text-align: center;
+}
+figure figcaption {
+  margin-bottom: 8px;
+  font-weight: 700;
+  color: #66ffcc;
+  font-size: 0.95rem;
+}
+figure img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 12px;
+  box-shadow: 0 6px 14px rgba(0,0,0,0.5);
+}
+
+/* SMALL NOTES */
+.small-note { color: #cfeee0; }
+
+/* FOOTER */
+footer {
+  background: #001f3f;
+  color: gold;
+  text-align: center;
+  padding: 15px;
+  border-top: 3px solid gold;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+  font-size: 0.9rem;
+}
+
+/* RESPONSIVE */
+
+/* Large screens */
+@media (max-width: 1024px) {
+  .side-image { width: 20%; }
+  .content { margin-left: 22%; }
+}
+
+/* Tablet */
+@media (max-width: 768px) {
+  .side-image {
+    position: relative;
+    width: 100%;
+    height: 220px;
+    border: none;
+    margin-bottom: 20px;
+  }
+  .content { margin-left: 0; padding: 20px; }
+  .text-img { gap: 12px; }
+}
+
+/* Mobile */
+@media (max-width: 600px) {
+ /* nav ul { flex-direction: column; gap: 10px; }*/
+  .text-img { flex-direction: column; }
+  .image-grid { grid-template-columns: 1fr; }
+  .image-grid-4 { grid-template-columns: 1fr; }
+  figure img { height: auto; max-height: 300px; }
+}
+
+/* Extra small */
+@media (max-width: 480px) {
+  .side-image { height: 180px; }
+  .content h2 { font-size: 1.4rem; }
+  .content p { font-size: 0.95rem; }
+}
+
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+    <div class="logo">
+      <img src="log.jpeg" alt="Logo" class="round-img">
+      <h1>Discover Madagascar</h1>
+    </div>
+    <nav>
+      <ul>
+        <li><a href="index.html">Accueil</a></li>
+        <li><a href="Infos.html">Infos sur Mada</a></li>
+        <li><a href="Provinces.html">Provinces</a></li>
+        <li><a href="Biodiversité.html">Biodiversité</a></li>
+        <li><a href="Cultures.html" class="active">Cultures</a></li>
+        <li><a href="Histoires.html">Histoires</a></li>
+        <li class="dropdown">
+          <a href="#">+ Autres ▾</a>
+          <ul class="dropdown-menu">
+                    <li><a href="Site.html">Lieux & Sites historiques</a></li>
+                    <li><a href="Provinces.html">Provinces & Régions</a></li>
+                    <li><a href="Voyage.html">Services de voyage</a></li>
+                    <li><a href="Contacts.html">Contacts</a></li>
+                    <li><a href="Gastronomie.html">Gastronomie</a></li>
+                    <li><a href="Traditions.html">Traditions</a></li>
+          </ul>
+        </li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Contenu principal -->
+  <main class="content">
+
+    <!-- 1. Langues -->
+    <section class="content-box text-img">
+      <div class="text">
+        <h2>1. Langues et dialectes</h2>
+        <p>Madagascar n’a <strong>qu’une seule langue officielle</strong> : le malgache.</p>
+        <p>Mais il existe <strong>18 dialectes principaux</strong>, répartis par régions :</p>
+        <ul>
+          <li><strong>Merina</strong> (Haut plateau central)</li>
+          <li><strong>Betsimisaraka</strong> (Est)</li>
+          <li><strong>Sakalava</strong> (Ouest)</li>
+          <li><strong>Antandroy, Bara, Betsileo</strong>, etc.</li>
+        </ul>
+        <p>Le français est aussi très utilisé dans l’éducation et l’administration.</p>
+      </div>
+      <div class="image">
+        <img src="images/Langues.jpeg" alt="Langues malgaches">
+      </div>
+    </section>
+
+    <!-- 2. Traditions et coutumes -->
+    <section class="content-box">
+      <h2>2. Traditions et coutumes</h2>
+      <h3>a. Famille et société</h3>
+      <ul>
+        <li>La famille est <strong>centrale</strong> dans la société malgache, souvent élargie.</li>
+        <li>Respect des <strong>ancêtres</strong> : culte du <i>famadihana</i>, surtout chez les Merina et Betsileo.</li>
+        <li>Rites de passage : naissance, mariage, décès avec cérémonies spécifiques.</li>
+      </ul>
+
+      <h3>b. Fêtes et cérémonies</h3>
+      <div class="image-grid">
+        <figure>
+          <figcaption>Famadihana</figcaption>
+          <img src="images/Famadihana.jpeg" alt="Famadihana">
+        </figure>
+        <figure>
+          <figcaption>Santabary</figcaption>
+          <img src="images/Satambary.jpeg" alt="Santabary">
+        </figure>
+        <figure>
+          <figcaption>Zafimaniry</figcaption>
+          <img src="images/Zafimaniry.jpeg" alt="Zafimaniry">
+        </figure>
+      </div>
+    </section>
+
+    <!-- 3. Arts et artisanat -->
+    <section class="content-box">
+      <h2>3. Arts et artisanat</h2>
+      <div class="image-grid">
+        <figure>
+          <figcaption>Sculpture sur bois</figcaption>
+          <img src="images/Sculpture zafimaniry.jpeg" alt="Sculpture Zafimaniry">
+        </figure>
+        <figure>
+          <figcaption>Tissage (Lamba)</figcaption>
+          <img src="images/Tissage.jpeg" alt="Lamba traditionnel">
+        </figure>
+        <figure>
+          <figcaption>Bijoux et orfèvrerie</figcaption>
+          <img src="images/Bijoux malagasy.jpeg" alt="Bijoux malgaches">
+        </figure>
+      </div>
+
+      <h3>Musique et danse</h3>
+      <div class="image-grid">
+        <figure>
+          <figcaption>Hira gasy</figcaption>
+          <img src="images/Hira gasy.jpeg" alt="Hira gasy">
+        </figure>
+        <figure>
+          <figcaption>Salegy</figcaption>
+          <img src="images/Salegy.jpeg" alt="Salegy">
+        </figure>
+        <figure>
+          <figcaption>Afindrafindrao</figcaption>
+          <img src="images/Afindrafindrao.jpeg" alt="Afindrafindrao">
+        </figure>
+      </div>
+    </section>
+
+    <!-- 4. Cuisine -->
+    <section class="content-box">
+      <h2>4. Cuisine malgache</h2>
+      <p>Le riz (<i>vary</i>) est la base, accompagné de <i>laoka</i> (sauce ou plat d’accompagnement).</p>
+      <div class="image-grid-4">
+        <figure>
+          <figcaption>Romazava</figcaption>
+          <img src="images/Romazava.jpeg" alt="Romazava">
+        </figure>
+        <figure>
+          <figcaption>Ravitoto</figcaption>
+          <img src="images/Ravitoto.jpeg" alt="Ravitoto">
+        </figure>
+        <figure>
+          <figcaption>Mofo gasy</figcaption>
+          <img src="images/Mofo gasy.jpeg" alt="Mofo gasy">
+        </figure>
+        <figure>
+          <figcaption>Laoka varié</figcaption>
+          <img src="images/Laoka varié.jpeg" alt="Plats malgaches">
+        </figure>
+      </div>
+      <p>Influences : africaine, asiatique (chinoise, indienne), arabe.</p>
+    </section>
+
+    <!-- 5. Habitudes -->
+    <section class="content-box">
+      <h2>5. Habitudes et mode de vie</h2>
+      <ul>
+        <li>Société souvent <strong>agricole</strong>, mais villes modernes comme Antananarivo se développent.</li>
+        <li>Marchés locaux : épices, vanille, artisanat en bois et lamba.</li>
+        <li><strong>Hospitalité</strong> : accueil chaleureux et respect de l’invité (<i>vahiny</i>).</li>
+      </ul>
+    </section>
+
+    <!-- 6. Mythes -->
+    <section class="content-box">
+      <h2>6. Mythes et croyances</h2>
+      <ul>
+        <li><strong>Animisme et respect de la nature</strong> : l’île est considérée sacrée dans beaucoup de régions.</li>
+        <li><strong>Tromba</strong> : possession par les esprits dans certaines cérémonies.</li>
+        <li><strong>Tabous (fady)</strong> : interdictions locales protégeant la nature ou la communauté.</li>
+      </ul>
+    </section>
+
+  </main>
+
+  <footer>
+    <p>&copy; 2025 Discover Madagascar - Cultures</p>
+  </footer>
+
+</body>
+</html>

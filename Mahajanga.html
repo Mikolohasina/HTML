@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Province de Mahajanga</title>
+<style>
+/* RESET */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  font-family: "Segoe UI", Arial, sans-serif;
+  background: linear-gradient(135deg, #001f3f, #003330);
+  color: #eee;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+    /* HEADER */
+    header {
+      background: linear-gradient(120deg, #003322, #001f3f);
+      padding: 20px 50px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 4px solid gold;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.5);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      border-bottom-left-radius: 25px;
+      border-bottom-right-radius: 25px;
+      flex-wrap: wrap;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 10px;
+    }
+    .round-img {
+    width: 50px;       /* taille de l'image */
+    height: 50px;      /* doit être égale pour faire un cercle parfait */
+    object-fit: cover;  /* recadre proprement sans déformer */
+    border-radius: 50%; /* rend l'image ronde */
+  }
+    .logo img {
+      width: 50px;
+      height: 50px;
+    }
+
+    .logo h1 {
+      font-size: 1.6rem;
+      font-weight: bold;
+      color: gold;
+      letter-spacing: 1px;
+    }
+
+    /* NAV */
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 15px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: white;
+      font-weight: 500;
+      padding: 8px 14px;
+      border-radius: 8px;
+      transition: 0.3s;
+      font-size: 0.95rem;
+    }
+
+    nav a:hover,
+    nav a.active {
+      background: gold;
+      color: #001f3f;
+      font-weight: bold;
+      box-shadow: 0 4px 10px rgba(255, 215, 0, 0.6);
+    }
+
+    .dropdown {
+      position: relative;
+    }
+
+    .dropdown-menu {
+      display: none;
+      position: absolute;
+      top: 35px;
+      left: 0;
+      background: #002b36;
+      border-radius: 10px;
+      box-shadow: 0 6px 15px rgba(0,0,0,0.5);
+      overflow: hidden;
+    }
+
+    .dropdown-menu li {
+      width: 180px;
+    }
+
+    .dropdown-menu a {
+      display: block;
+      padding: 10px 12px;
+      color: gold;
+    }
+
+    .dropdown-menu a:hover {
+      background: #003322;
+      color: white;
+    }
+
+    .dropdown:hover .dropdown-menu {
+      display: block;
+    }
+
+/* CONTENU PRINCIPAL */
+.content {
+  padding: 30px 20px;
+  flex: 1;
+}
+.page-title {
+  text-align: center;
+  font-size: 2rem;
+  margin-bottom: 20px;
+  color: gold;
+}
+/* BOX TEXTE */
+.text-box {
+  background: #002b36;
+  border: 2px solid rgba(255,215,0,0.2);
+  border-radius: 15px;
+  padding: 20px;
+  width: 96%;
+  margin: 0 auto 30px auto;
+  box-shadow: 0 6px 15px rgba(0,0,0,0.4);
+}
+/* BOX PHOTOS */
+.photo-row {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  width: 96%;
+  margin: 0 auto 20px auto;
+}
+.photo-box {
+  width: 45%;
+  margin-bottom: 20px;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 6px 15px rgba(0,0,0,0.4);
+  transition: transform 0.3s;
+}
+.photo-box:hover {
+  transform: scale(1.05);
+}
+.photo-box img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  display: block;
+}
+/* FOOTER */
+footer {
+  background: #001f3f;
+  color: gold;
+  text-align: center;
+  padding: 15px;
+  border-top: 3px solid gold;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+  font-size: 0.9rem;
+}
+/* RESPONSIVE */
+@media (max-width: 768px) {
+  .photo-box {
+    width: 100%;
+  }
+}
+</style>
+</head>
+<body>
+<header>
+  <div class="logo">
+    <img src="log.jpeg" alt="Logo" class="round-img">
+    <h1>Madagascar</h1>
+  </div>
+  <nav>
+    <ul>
+      <ul>
+        <li><a href="index.html" class="active">Accueil</a></li>
+        <li><a href="Infos.html">Infos sur Mada</a></li>
+        <li><a href="Population.html">Population</a></li>
+        <li><a href="Biodiversité.html">Biodiversité</a></li>
+        <li><a href="Cultures.html">Cultures</a></li>
+        <li><a href="Histoires.html">Histoires</a></li>
+        <li class="dropdown">
+          <a href="#">+ Autres ▾</a>
+          <ul class="dropdown-menu">
+            <li><a href="Site.html">Lieux & Sites historiques</a></li>
+            <li><a href="Provinces.html">Provinces & Régions</a></li>
+            <li><a href="Voyage.html">Services de voyage</a></li>
+            <li><a href="Contacts.html">Contacts</a></li>
+            <li><a href="Gastronomie.html">Gastronomie</a></li>
+            <li><a href="Traditions.html">Traditions</a></li>
+          </ul>
+        </li>
+      </ul>
+  </nav>
+</header>
+
+<div class="content">
+  <h2 class="page-title">Province de Mahajanga</h2>
+
+  <div class="text-box">
+    <p>
+      La province de Mahajanga, située dans le nord-ouest de Madagascar, est célèbre pour ses plages, ses zones humides et son riche patrimoine culturel. Elle regroupe les régions de Boeny, Betsiboka et Melaky. Mahajanga est reconnue pour ses marchés colorés, ses traditions Vezo et Sakalava, ainsi que pour ses paysages naturels variés allant des baobabs aux lagunes côtières.
+    </p>
+  </div>
+
+  <div class="photo-row">
+    <div class="photo-box"><img src="PhotosMahajanga/photo1.jpg" alt="Plage de Mahajanga"></div>
+    <div class="photo-box"><img src="PhotosMahajanga/photo2.jpg" alt="Lagune côtière"></div>
+    <div class="photo-box"><img src="PhotosMahajanga/photo3.jpg" alt="Baobabs"></div>
+    <div class="photo-box"><img src="PhotosMahajanga/photo4.jpg" alt="Marché coloré"></div>
+    <div class="photo-box"><img src="PhotosMahajanga/photo5.jpg" alt="Village traditionnel"></div>
+    <div class="photo-box"><img src="PhotosMahajanga/photo6.jpg" alt="Culture Vezo"></div>
+    <div class="photo-box"><img src="PhotosMahajanga/photo7.jpg" alt="Rivière et nature"></div>
+    <div class="photo-box"><img src="PhotosMahajanga/photo8.jpg" alt="Paysage rural"></div>
+  </div>
+</div>
+
+<footer>
+  &copy; 2025 Madagascar | Tous droits réservés
+</footer>
+</body>
+</html>

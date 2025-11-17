@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Histoires de Madagascar</title>
+  <style>
+    /* RESET */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* BODY */
+body {
+  font-family: "Segoe UI", Arial, sans-serif;
+  background: linear-gradient(135deg, #001f3f, #003330);
+  color: #eee;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* HEADER */
+header {
+  background: linear-gradient(120deg, #003322, #001f3f);
+  padding: 20px 50px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 4px solid gold;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.5);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  border-bottom-left-radius: 25px;
+  border-bottom-right-radius: 25px;
+  flex-wrap: wrap;
+}
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 10px;
+}
+.logo img {
+  width: 50px;
+  height: 50px;
+}
+.round-img {
+    width: 50px;       /* taille de l'image */
+    height: 50px;      /* doit être égale pour faire un cercle parfait */
+    object-fit: cover;  /* recadre proprement sans déformer */
+    border-radius: 50%; /* rend l'image ronde */
+  }
+.logo h1 {
+  font-size: 1.6rem;
+  font-weight: bold;
+  color: gold;
+  letter-spacing: 1px;
+}
+
+/* NAVIGATION */
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 15px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+nav a {
+  text-decoration: none;
+  color: white;
+  font-weight: 500;
+  padding: 8px 14px;
+  border-radius: 8px;
+  transition: 0.3s;
+  font-size: 0.95rem;
+}
+nav a:hover,
+nav a.active {
+  background: gold;
+  color: #001f3f;
+  font-weight: bold;
+  box-shadow: 0 4px 10px rgba(255,215,0,0.6);
+}
+/* DROPDOWN */
+.dropdown { position: relative; }
+.dropdown-menu {
+  display: none;
+  position: absolute;
+  top: 35px;
+  left: 0;
+  background: #002b36;
+  border-radius: 10px;
+  box-shadow: 0 6px 15px rgba(0,0,0,0.5);
+  overflow: hidden;
+}
+.dropdown-menu li { width: 180px; }
+.dropdown-menu a { display:block; padding:10px 12px; color: gold; }
+.dropdown-menu a:hover { background:#003322; color: white; }
+.dropdown:hover .dropdown-menu { display:block; }
+
+/* MAIN CONTENT */
+.content {
+  padding: 40px 20px;
+  flex: 1;
+  max-width: 1100px;
+  margin: auto;
+}
+.content-box {
+  background: #002b36;
+  border-radius: 15px;
+  padding: 25px;
+  margin-bottom: 30px;
+  box-shadow: 0 8px 18px rgba(0,0,0,0.5);
+  border: 2px solid rgba(255,215,0,0.12);
+}
+
+/* TITRES */
+.content-box h2 { color: gold; margin-bottom: 15px; }
+.content-box h3 { color: #66ffcc; margin-bottom: 12px; }
+
+/* DATES, ROIS, PRESIDENTS, AUTRES */
+.date { color: #ff4d4d; font-weight: bold; }
+.roi { color: #ffd700; font-weight: bold; }
+.president { color: #3399ff; font-weight: bold; }
+.autre { color: #33ff99; }
+
+/* TEXT & LISTS */
+.content-box p,
+.content-box li {
+  color: #ddd;
+  line-height: 1.5;
+  margin-bottom: 8px;
+}
+ul, ol { padding-left: 20px; }
+
+/* SMALL NOTE */
+.small-note { color: #cfeee0; margin-top: 15px; font-weight: bold; }
+
+/* FOOTER */
+footer {
+  background: #001f3f;
+  color: gold;
+  text-align: center;
+  padding: 15px;
+  border-top: 3px solid gold;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+  font-size: 0.9rem;
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+  /*nav ul { flex-direction: column; gap: 10px; }
+}
+*/}
+  </style>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header>
+    <div class="logo">
+      <img src="log.jpeg" alt="Logo" class="round-img">
+      <h1>Histoires de Madagascar</h1>
+    </div>
+    <nav>
+      <ul>
+        <li><a href="index.html">Accueil</a></li>
+        <li><a href="Infos.html">Infos sur Mada</a></li>
+        <li><a href="Provinces.html">Provinces</a></li>
+        <li><a href="Biodiversité.html">Biodiversité</a></li>
+        <li><a href="Cultures.html" >Cultures</a></li>
+        <li><a href="Histoires.html"  class="active">Histoires</a></li>
+        <li class="dropdown">
+          <a href="#">+ Autres ▾</a>
+          <ul class="dropdown-menu">
+                    <li><a href="Site.html">Lieux & Sites historiques</a></li>
+                    <li><a href="Provinces.html">Provinces & Régions</a></li>
+                    <li><a href="Voyage.html">Services de voyage</a></li>
+                    <li><a href="Contacts.html">Contacts</a></li>
+                    <li><a href="Gastronomie.html">Gastronomie</a></li>
+                    <li><a href="Traditions.html">Traditions</a></li>
+          </ul>
+        </li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- MAIN CONTENT -->
+  <main class="content">
+      <h1 class="president"> <   HISTOIRE DE MADAGASCAR EN GENERAL    > </h1>
+      <br>
+      <div>
+        <h2>🗺️ La découverte de Madagascar <span class="date">(1500)</span></h2>
+
+   <h3> <span class="date">10 août 1500 :</span> Le navigateur portugais <span class="president"> Diego Diaz (ou Diogo Dias) </span> atteint les côtes de 
+   Madagascar lors d'une expéditions vers l'Inde. Il nomme l'île "Sainte-Laurent" en l'honneur de la fête du jour</strong></h3>
+   <br><br>
+      </div>
+    <!-- Section 1: Avant les Royaumes -->
+    <section class="content-box">
+      <h2>1. Avant les Royaumes <span class="date">(jusqu’au XVIIᵉ siècle)</span></h2>
+      <h3>Peuplement initial</h3>
+      <p>Madagascar est peuplée par des groupes venant d'Asie du Sud-Est (Indonésie, Malaisie) et d'Afrique de l'Est.</p>
+      <h3>Organisation sociale</h3>
+      <p>Les sociétés sont organisées en clans ou tribus, avec des structures politiques locales.</p>
+      <h3>Échanges commerciaux</h3>
+      <p>Développement de réseaux commerciaux avec les Arabes, les Malais et les Européens, notamment pour l'or, les esclaves et les épices.</p>
+    </section>
+
+    <!-- Section 2: Les Royaumes de Madagascar -->
+    <section class="content-box">
+      <h2>2. Les Royaumes de Madagascar <span class="date">(XVIIᵉ - fin XIXᵉ siècle)</span></h2>
+      
+      <h3>Royaumes principaux</h3>
+      <ul>
+        <li><span class="roi">Merina (Imerina)</span> : Région du Haut-Plateau central, autour d'Antananarivo.</li>
+        <li><span class="roi">Sakalava</span> : Ouest de l'île, royaume puissant au XVIIᵉ siècle.</li>
+        <li><span class="roi">Betsimisaraka</span> : Est de Madagascar, royaume côtier.</li>
+        <li><span class="roi">Antandroy & Mahafaly</span> : Royaumes du sud, connus pour leur culture distincte.</li>
+      </ul>
+
+      <h3>Rois et Reines notables</h3>
+      <ul>
+        <li><span class="roi">Andrianampoinimerina</span> <span class="date">(1787–1810)</span> : Unifie le royaume Merina, établit des réformes administratives.</li>
+        <li><span class="roi">Radama Ier</span> <span class="date">(1810–1828)</span> : Modernise le royaume, établit des relations avec les Européens.</li>
+        <li><span class="roi">Ranavalona I</span> <span class="date">(1828–1861)</span> : Politique isolationniste, persécution des chrétiens.</li>
+        <li><span class="roi">Radama II</span> <span class="date">(1861–1863)</span> : Ouverture au christianisme, assassiné en 1863.</li>
+        <li><span class="roi">Rasoherina</span> <span class="date">(1863–1868)</span> : Épouse de Radama II, règne après sa mort.</li>
+        <li><span class="roi">Ranavalona II</span> <span class="date">(1868–1883)</span> : Première reine chrétienne, modernisation limitée.</li>
+        <li><span class="roi">Ranavalona III</span> <span class="date">(1883–1897)</span> : Dernière reine, déposée lors de la colonisation française.</li>
+      </ul>
+    </section>
+
+    <!-- Section 3: Colonisation française -->
+    <section class="content-box">
+      <h2>3. Colonisation française <span class="date">(1896–1960)</span></h2>
+
+      <h3>Contexte et processus</h3>
+      <ul>
+        <li><span class="date">1895</span> : Les troupes françaises débarquent à Majunga.</li>
+        <li><span class="date">30 septembre 1895</span> : Occupation d'Antananarivo.</li>
+        <li><span class="date">1896</span> : Annexion officielle de Madagascar par la France, fin de la monarchie Merina.</li>
+      </ul>
+
+      <h3>Politiques coloniales</h3>
+      <ul>
+        <li><span class="autre">Code de l'indigénat</span> : Législation discriminatoire imposant des obligations aux Malgaches.</li>
+        <li><span class="autre">Travail forcé</span> : Utilisation de la main-d'œuvre malgache pour des travaux publics et agricoles.</li>
+        <li><span class="autre">Répression des révoltes</span> : Répression violente des mouvements de résistance, notamment le mouvement Menalamba.</li>
+      </ul>
+
+      <h3>Mouvements de résistance</h3>
+      <ul>
+        <li><span class="autre">Mouvement Menalamba</span> : Insurrection contre la colonisation, principalement dans la région d'Imerina.</li>
+        <li><span class="autre">Révoltes paysannes</span> : Protestations contre les conditions de vie imposées par les autorités coloniales.</li>
+      </ul>
+    </section>
+
+    <!-- Section 4: Mouvements de résistance -->
+    <section class="content-box">
+      <h2>Mouvements de résistance à la colonisation française à Madagascar</h2>
+
+      <h3>1. Révolte des Menalamba <span class="date">(1895–1897)</span></h3>
+      <ul>
+        <li>Surnommés les <span class="autre">“Écharpes rouges”</span>, surtout dans la région d’Imerina.</li>
+        <li>Résistance populaire contre l’occupation française, la christianisation forcée et les réformes imposées.</li>
+        <li>Attaques contre les symboles coloniaux : missionnaires, églises, administration.</li>
+      </ul>
+
+      <h3>2. Sociétés secrètes <span class="date">(années 1940)</span></h3>
+      <ul>
+        <li><span class="autre">VVS (Vondrona Vahoaka Malagasy)</span> : intellectuels et militants pour l’indépendance.</li>
+        <li><span class="autre">Jina</span> et <span class="autre">Panama</span> : actions clandestines, sabotage, désobéissance civile.</li>
+        <li>Rôle : mobiliser la population et diffuser les idées nationalistes malgré la répression.</li>
+      </ul>
+
+      <h3>3. Mouvement politique MDRM <span class="date">(1946)</span></h3>
+      <ul>
+        <li>Fondé pour réclamer l’indépendance pacifique.</li>
+        <li><span class="autre">Insurrection de 1947</span> : grèves et manifestations contre la France.</li>
+        <li>Répression violente par les Français, notamment le massacre du train de Moramanga.</li>
+      </ul>
+
+      <h3>4. PADESM <span class="date">(1946)</span></h3>
+      <ul>
+        <li>Représente les côtiers et descendants d’esclaves.</li>
+        <li>Favorable à une indépendance progressive et à la coopération avec la France.</li>
+        <li>Joue un rôle clé dans la transition vers l’autonomie en 1958.</li>
+      </ul>
+
+      <h3>5. Leaders importants</h3>
+      <ul>
+        <li><span class="autre">Jean Ralaimongo</span> : leader politique et figure nationale du mouvement pour l’autonomie et les droits des Malgaches.</li>
+        <li>Autres leaders des sociétés secrètes et mouvements locaux ont contribué à la résistance clandestine et populaire.</li>
+      </ul>
+
+      <p class="small-note">✅ Résumé clé : Madagascar a résisté à la colonisation par <strong>une combinaison de révoltes populaires (Menalamba), d’actions clandestines (VVS, Jina, Panama) et de mouvements politiques (MDRM, PADESM)</strong>. Ces mouvements ont préparé le terrain pour l’indépendance en 1960.</p>
+    </section>
+
+    <!-- Section 5: Indépendance et République -->
+    <section class="content-box">
+      <h2>4. Indépendance et République <span class="date">(1960–présent)</span></h2>
+
+      <h3>Indépendance</h3>
+      <ul>
+        <li><span class="date">26 juin 1960</span> : Madagascar obtient son indépendance de la France.</li>
+        <li><span class="president">Philibert Tsiranana</span> : Premier président, politique modérée et pro-française.</li>
+      </ul>
+
+      <h3>Présidents successifs</h3>
+      <ol>
+        <li><span class="president">Philibert Tsiranana</span> <span class="date">(1960–1972)</span> : Premier président, politique modérée.</li>
+        <li><span class="president">Gabriel Ramanantsoa</span> <span class="date">(1972–1975)</span> : Général militaire, prend le pouvoir après des émeutes.</li>
+        <li><span class="president">Didier Ratsiraka</span> <span class="date">(1975–1991)</span> : Régime socialiste, nationalisation de l'économie.</li>
+        <li><span class="president">Albert Zafy</span> <span class="date">(1993–1996)</span> : Transition démocratique, réformes politiques.</li>
+        <li><span class="president">Didier Ratsiraka</span> <span class="date">(1997–2002)</span> : Retour au pouvoir, crise politique.</li>
+        <li><span class="president">Marc Ravalomanana</span> <span class="date">(2002–2009)</span> : Modernisation économique, renversé par un coup d'État.</li>
+        <li><span class="president">Andry Rajoelina</span> <span class="date">(2009–2014)</span> : Transition politique, réformes économiques.</li>
+        <li><span class="president">Hery Rajaonarimampianina</span> <span class="date">(2014–2018)</span> : Développement infrastructurel, tensions politiques.</li>
+        <li><span class="president">Andry Rajoelina</span> <span class="date">(2019–présent)</span> : Retour au pouvoir, initiatives pour le développement durable.</li>
+      </ol>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer>
+    &copy; 2025 Histoires de Madagascar - Tous droits réservés
+  </footer>
+
+</body>
+</html>

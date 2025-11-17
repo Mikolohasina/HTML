@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Traditions de Madagascar</title>
+<style>
+/* RESET */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Segoe UI", Arial, sans-serif;
+  background: linear-gradient(135deg, #001f3f, #003330);
+  color: #eee;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* HEADER */
+header {
+  background: linear-gradient(120deg, #003322, #001f3f);
+  padding: 20px 50px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 4px solid gold;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.5);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  border-bottom-left-radius: 25px;
+  border-bottom-right-radius: 25px;
+  flex-wrap: wrap;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 10px;
+}
+
+.logo img {
+  width: 50px;
+  height: 50px;
+}
+
+.logo h1 {
+  font-size: 1.6rem;
+  font-weight: bold;
+  color: gold;
+  letter-spacing: 1px;
+}
+
+/* NAV */
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 15px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+nav a {
+  text-decoration: none;
+  color: white;
+  font-weight: 500;
+  padding: 8px 14px;
+  border-radius: 8px;
+  transition: 0.3s;
+  font-size: 0.95rem;
+}
+
+nav a:hover,
+nav a.active {
+  background: gold;
+  color: #001f3f;
+  font-weight: bold;
+  box-shadow: 0 4px 10px rgba(255, 215, 0, 0.6);
+}
+
+.dropdown {
+  position: relative;
+}
+
+.dropdown-menu {
+  display: none;
+  position: absolute;
+  top: 35px;
+  left: 0;
+  background: #002b36;
+  border-radius: 10px;
+  box-shadow: 0 6px 15px rgba(0,0,0,0.5);
+  overflow: hidden;
+}
+
+.dropdown-menu li {
+  width: 180px;
+}
+
+.dropdown-menu a {
+  display: block;
+  padding: 10px 12px;
+  color: gold;
+}
+
+.dropdown-menu a:hover {
+  background: #003322;
+  color: white;
+}
+
+.dropdown:hover .dropdown-menu {
+  display: block;
+}
+
+/* CONTENU PRINCIPAL */
+.content {
+  padding: 40px 20px;
+  flex: 1;
+}
+
+.page-title {
+  text-align: center;
+  font-size: 2rem;
+  margin-bottom: 25px;
+  color: gold;
+}
+
+/* TRADITIONS LAYOUT */
+.tradition-box {
+  display: flex;
+  gap: 20px;
+  background: #002b36;
+  border: 2px solid rgba(255,215,0,0.2);
+  border-radius: 15px;
+  padding: 20px;
+  margin: 25px auto;
+  width: 92%;
+  box-shadow: 0 6px 15px rgba(0,0,0,0.4);
+  flex-wrap: wrap;
+}
+
+.tradition-left {
+  width: 40%;
+}
+
+.tradition-left h2 {
+  color: gold;
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+  border-bottom: 2px solid rgba(255,215,0,0.3);
+  padding-bottom: 5px;
+}
+
+.tradition-left p {
+  margin: 10px 0;
+  color: #eee;
+  line-height: 1.5;
+}
+
+.tradition-left .label {
+  color: #66ffcc;
+  font-weight: bold;
+}
+
+.tradition-right {
+  width: 55%;
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.tradition-right img {
+  width: 48%;
+  height: 300px;
+  object-fit: cover;
+  border-radius: 8px;
+  border: 2px solid gold;
+  background: #222;
+}
+
+/* FOOTER */
+footer {
+  background: #001f3f;
+  color: gold;
+  text-align: center;
+  padding: 15px;
+  border-top: 3px solid gold;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+  font-size: 0.9rem;
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+  .tradition-box {
+    flex-direction: column;
+  }
+  .tradition-left, .tradition-right {
+    width: 100%;
+  }
+  .tradition-right img {
+    width: 48%;
+    height: auto;
+  }
+}
+.round-img {
+    width: 50px;       /* taille de l'image */
+    height: 50px;      /* doit être égale pour faire un cercle parfait */
+    object-fit: cover;  /* recadre proprement sans déformer */
+    border-radius: 50%; /* rend l'image ronde */
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="logo">
+    <img src="log.jpeg" alt="Logo" class="round-img">
+    <h1>Madagascar Traditions</h1>
+  </div>
+  <nav>
+      <ul>
+        <li><a href="index.html">Accueil</a></li>
+        <li><a href="Infos.html">Infos sur Mada</a></li>
+        <li><a href="Population.html">Population</a></li>
+        <li><a href="Biodiversité.html">Biodiversité</a></li>
+        <li><a href="Cultures.html">Cultures</a></li>
+        <li><a href="Histoires.html">Histoires</a></li>
+        <li class="dropdown">
+          <a href="#" class="active">+ Autres ▾</a>
+          <ul class="dropdown-menu">
+            <li><a href="Site.html"   >Lieux & Sites historiques</a></li>
+            <li><a href="Provinces.html">Provinces & Régions</a></li>
+            <li><a href="Voyage.html">Services de voyage</a></li>
+            <li><a href="Contacts.html">Contacts</a></li>
+            <li><a href="Gastronomie.html">Gastronomie</a></li>
+            <li><a href="Traditions.html" class="active">Traditions</a></li>
+          </ul>
+        </li>
+      </ul>
+  </nav>
+</header>
+
+<div class="content">
+  <h1 class="page-title">Traditions de Madagascar</h1>
+
+  <!-- Tradition 1 -->
+  <div class="tradition-box">
+    <div class="tradition-left">
+      <h2>Famadihana</h2>
+      <p><span class="label">Quoi :</span> Retournement des morts, cérémonie funéraire symbolique.</p>
+      <p><span class="label">Pourquoi :</span> Honorer les ancêtres et renforcer la mémoire collective.</p>
+      <p><span class="label">Où :</span> Principalement dans les Hautes Terres de Madagascar.</p>
+    </div>
+    <div class="tradition-right">
+      <img src="famadihana1.jpg" alt="Famadihana 1">
+      <img src="famadihana2.jpg" alt="Famadihana 2">
+    </div>
+  </div>
+
+  <!-- Tradition 2 -->
+  <div class="tradition-box">
+    <div class="tradition-left">
+      <h2>Fady</h2>
+      <p><span class="label">Quoi :</span> Tabous et interdits culturels régissant la vie quotidienne.</p>
+      <p><span class="label">Pourquoi :</span> Maintenir l’harmonie spirituelle et respecter les ancêtres.</p>
+      <p><span class="label">Où :</span> Partout à Madagascar, selon les ethnies et régions.</p>
+    </div>
+    <div class="tradition-right">
+      <img src="fady1.jpg" alt="Fady 1">
+      <img src="fady2.jpg" alt="Fady 2">
+    </div>
+  </div>
+
+  <!-- Tradition 3 -->
+  <div class="tradition-box">
+    <div class="tradition-left">
+      <h2>Hira Gasy / Vakodrazana</h2>
+      <p><span class="label">Quoi :</span> Théâtre populaire avec musique et danse traditionnelle.</p>
+      <p><span class="label">Pourquoi :</span> Transmettre des histoires, légendes et valeurs morales.</p>
+      <p><span class="label">Où :</span> Hautes Terres centrales.</p>
+    </div>
+    <div class="tradition-right">
+      <img src="hiragasy1.jpg" alt="Hira Gasy 1">
+      <img src="hiragasy2.jpg" alt="Hira Gasy 2">
+    </div>
+  </div>
+
+  <!-- Tradition 4 -->
+  <div class="tradition-box">
+    <div class="tradition-left">
+      <h2>Sambatra</h2>
+      <p><span class="label">Quoi :</span> Circoncision rituelle collective.</p>
+      <p><span class="label">Pourquoi :</span> Passage à l’âge adulte et cohésion sociale.</p>
+      <p><span class="label">Où :</span> Ouest de Madagascar, communauté Sakalava.</p>
+    </div>
+    <div class="tradition-right">
+      <img src="sambatra1.jpg" alt="Sambatra 1">
+      <img src="sambatra2.jpg" alt="Sambatra 2">
+    </div>
+  </div>
+
+  <!-- Tradition 5 -->
+  <div class="tradition-box">
+    <div class="tradition-left">
+      <h2>Tromba</h2>
+      <p><span class="label">Quoi :</span> Rituel de possession spirituelle par des médiums.</p>
+      <p><span class="label">Pourquoi :</span> Délivrer des messages et conseils des ancêtres.</p>
+      <p><span class="label">Où :</span> Principalement chez les Sakalava.</p>
+    </div>
+    <div class="tradition-right">
+      <img src="tromba1.jpg" alt="Tromba 1">
+      <img src="tromba2.jpg" alt="Tromba 2">
+    </div>
+  </div>
+
+  <!-- Tradition 6 -->
+<div class="tradition-box">
+  <div class="tradition-left">
+    <h2>Hainteny</h2>
+    <p><span class="label">Quoi :</span> Poésie orale malgache, utilisant proverbes et métaphores.</p>
+    <p><span class="label">Pourquoi :</span> Transmettre des histoires, conseils et valeurs morales.</p>
+    <p><span class="label">Où :</span> Partout à Madagascar, surtout lors des veillées et mariages.</p>
+  </div>
+  <div class="tradition-right">
+    <img src="hainteny1.jpg" alt="Hainteny 1">
+    <img src="hainteny2.jpg" alt="Hainteny 2">
+  </div>
+</div>
+
+<!-- Tradition 7 -->
+<div class="tradition-box">
+  <div class="tradition-left">
+    <h2>Kabary</h2>
+    <p><span class="label">Quoi :</span> Discours cérémonial, souvent poétique et rythmé.</p>
+    <p><span class="label">Pourquoi :</span> Honorer quelqu’un, résoudre des conflits, transmettre la sagesse.</p>
+    <p><span class="label">Où :</span> Mariages, funérailles et fêtes communautaires.</p>
+  </div>
+  <div class="tradition-right">
+    <img src="kabary1.jpg" alt="Kabary 1">
+    <img src="kabary2.jpg" alt="Kabary 2">
+  </div>
+</div>
+
+<!-- Tradition 8 -->
+<div class="tradition-box">
+  <div class="tradition-left">
+    <h2>Fomba amam-panao agricole</h2>
+    <p><span class="label">Quoi :</span> Rituels liés aux semailles et récoltes.</p>
+    <p><span class="label">Pourquoi :</span> Honorer les ancêtres et assurer une bonne moisson.</p>
+    <p><span class="label">Où :</span> Régions rurales, surtout chez Betsileo et Merina.</p>
+  </div>
+  <div class="tradition-right">
+    <img src="agriculture1.jpg" alt="Agriculture 1">
+    <img src="agriculture2.jpg" alt="Agriculture 2">
+  </div>
+</div>
+
+<!-- Tradition 9 -->
+<div class="tradition-box">
+  <div class="tradition-left">
+    <h2>Coutumes maritimes chez les Vezo</h2>
+    <p><span class="label">Quoi :</span> Rituels et protections pour la mer et les pirogues.</p>
+    <p><span class="label">Pourquoi :</span> Demander la protection des esprits et garantir la sécurité des pêcheurs.</p>
+    <p><span class="label">Où :</span> Côtes Sud-Ouest de Madagascar, villages Vezo.</p>
+  </div>
+  <div class="tradition-right">
+    <img src="vezo1.jpg" alt="Vezo 1">
+    <img src="vezo2.jpg" alt="Vezo 2">
+  </div>
+</div>
+
+<!-- Tradition 10 -->
+<div class="tradition-box">
+  <div class="tradition-left">
+    <h2>Harin’ny omby</h2>
+    <p><span class="label">Quoi :</span> Cérémonies et sacrifices liés au zébu.</p>
+    <p><span class="label">Pourquoi :</span> Demander la protection des ancêtres et la prospérité familiale.</p>
+    <p><span class="label">Où :</span> Partout à Madagascar, très présent chez Merina et Betsileo.</p>
+  </div>
+  <div class="tradition-right">
+    <img src="zebu1.jpg" alt="Zebu 1">
+    <img src="zebu2.jpg" alt="Zebu 2">
+  </div>
+</div>
+
+
+</div>
+
+<footer>
+  &copy; 2025 Madagascar Traditions by HAMA. Tous droits réservés.
+</footer>
+
+</body>
+</html>

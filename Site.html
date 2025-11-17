@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sites de Madagascar</title>
+  <style>
+/* RESET */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Segoe UI", Arial, sans-serif;
+  background: linear-gradient(135deg, #001f3f, #003330);
+  color: #eee;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* HEADER */
+header {
+  background: linear-gradient(120deg, #003322, #001f3f);
+  padding: 20px 50px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 4px solid gold;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.5);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  border-bottom-left-radius: 25px;
+  border-bottom-right-radius: 25px;
+  flex-wrap: wrap;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 10px;
+}
+.round-img {
+    width: 50px;       /* taille de l'image */
+    height: 50px;      /* doit être égale pour faire un cercle parfait */
+    object-fit: cover;  /* recadre proprement sans déformer */
+    border-radius: 50%; /* rend l'image ronde */
+  }
+.logo img {
+  width: 50px;
+  height: 50px;
+}
+
+.logo h1 {
+  font-size: 1.6rem;
+  font-weight: bold;
+  color: gold;
+  letter-spacing: 1px;
+}
+
+/* NAV */
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 15px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+nav a {
+  text-decoration: none;
+  color: white;
+  font-weight: 500;
+  padding: 8px 14px;
+  border-radius: 8px;
+  transition: 0.3s;
+  font-size: 0.95rem;
+}
+
+nav a:hover,
+nav a.active {
+  background: gold;
+  color: #001f3f;
+  font-weight: bold;
+  box-shadow: 0 4px 10px rgba(255, 215, 0, 0.6);
+}
+
+.dropdown {
+  position: relative;
+}
+
+.dropdown-menu {
+  display: none;
+  position: absolute;
+  top: 35px;
+  left: 0;
+  background: #002b36;
+  border-radius: 10px;
+  box-shadow: 0 6px 15px rgba(0,0,0,0.5);
+  overflow: hidden;
+}
+
+.dropdown-menu li {
+  width: 180px;
+}
+
+.dropdown-menu a {
+  display: block;
+  padding: 10px 12px;
+  color: gold;
+}
+
+.dropdown-menu a:hover {
+  background: #003322;
+  color: white;
+}
+
+.dropdown:hover .dropdown-menu {
+  display: block;
+}
+
+/* CONTENU PRINCIPAL */
+.content {
+  padding: 40px 20px;
+  flex: 1;
+}
+
+.page-title {
+  text-align: center;
+  font-size: 2rem;
+  margin-bottom: 25px;
+  color: gold;
+}
+
+/* BOX DES PROVINCES */
+.content-box {
+  background: #002b36;
+  border: 2px solid rgba(255,215,0,0.2);
+  border-radius: 15px;
+  padding: 20px;
+  margin: 25px auto;
+  width: 92%;
+  box-shadow: 0 6px 15px rgba(0,0,0,0.4);
+}
+
+.province-title {
+  color: gold;
+  font-size: 1.4rem;
+  margin-bottom: 12px;
+  border-bottom: 2px solid rgba(255,215,0,0.3);
+  padding-bottom: 6px;
+}
+
+.section-title {
+  color: #66ffcc;
+  font-size: 1.1rem;
+  margin: 15px 0 10px;
+}
+
+/* Chaque lieu */
+.lieu-box {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #013030;
+  border-radius: 10px;
+  padding: 15px;
+  margin: 15px auto;
+  width: 86%;
+  box-shadow: 0 3px 8px rgba(0,0,0,0.3);
+}
+
+.lieu-box p {
+  flex: 1;
+  margin: 0;
+  color: #eee;
+}
+
+.lieu {
+  font-weight: bold;
+  color: gold;
+}
+
+.lieu-images {
+  display: flex;
+  gap: 12px;
+}
+
+.lieu-images img {
+  width: 200px;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 8px;
+  border: 2px solid gold;
+  background: #222;
+}
+
+/* FOOTER */
+footer {
+  background: #001f3f;
+  color: gold;
+  text-align: center;
+  padding: 15px;
+  border-top: 3px solid gold;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+  font-size: 0.9rem;
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+  .lieu-box {
+    flex-direction: column;
+    align-items: flex-start;
+    width: 100%;
+  }
+  .lieu-images {
+    margin-top: 10px;
+    width: 100%;
+    justify-content: space-between;
+  }
+  .lieu-images img {
+    width: 48%;
+    height: auto;
+  }
+}
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+    <div class="logo">
+      <img src="log.jpeg" alt="Logo" class="round-img">
+      <h1>Découvrir Madagascar</h1>
+    </div>
+    <nav>
+      <ul>
+        <li><a href="index.html">Accueil</a></li>
+        <li><a href="Infos.html">Infos sur Mada</a></li>
+        <li><a href="Population.html">Population</a></li>
+        <li><a href="Biodiversité.html">Biodiversité</a></li>
+        <li><a href="Cultures.html">Cultures</a></li>
+        <li><a href="Histoires.html">Histoires</a></li>
+        <li class="dropdown">
+          <a href="#" class="active">+ Autres ▾</a>
+          <ul class="dropdown-menu">
+            <li><a href="Site.html"   class="active">Lieux & Sites historiques</a></li>
+            <li><a href="Provinces.html">Provinces & Régions</a></li>
+            <li><a href="Voyage.html">Services de voyage</a></li>
+            <li><a href="Contacts.html">Contacts</a></li>
+            <li><a href="Gastronomie.html">Gastronomie</a></li>
+            <li><a href="Traditions.html">Traditions</a></li>
+          </ul>
+        </li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Contenu principal -->
+  <main class="content">
+    <h2 class="page-title">🌍 Sites remarquables de Madagascar</h2>
+
+    <!-- Province Antananarivo -->
+    <section class="content-box">
+      <h3 class="province-title">🏛 Province d’Antananarivo</h3>
+      <h4 class="section-title">Sites historiques</h4>
+      <div class="lieu-box"><p><span class="lieu">Rova d’Antananarivo</span> – symbole de la royauté Merina.</p><div class="lieu-images"><img src="images/rovam.jpeg"><img src="Plus/Rova.jpeg"></div></div>
+      <div class="lieu-box"><p><span class="lieu">Ambohimanga</span> – colline royale sacrée, classée UNESCO.</p><div class="lieu-images"><img src="images/colline.jpeg"><img src="images/mbohimangar.jpeg"></div></div>
+      <div class="lieu-box"><p><span class="lieu">Palais d’Andafiavaratra</span> – ancienne résidence du Premier ministre Rainilaiarivony.</p><div class="lieu-images"><img src="images/resid.jpeg"><img src="images/residentra.jpeg"></div></div>
+      <div class="lieu-box"><p><span class="lieu">Vieille ville Haute de Tana</span> – architecture coloniale et royale.</p><div class="lieu-images"><img src="images/tanav.jpeg"></div></div>
+
+      <h4 class="section-title">Sites touristiques</h4>
+      <div class="lieu-box"><p><span class="lieu">Lemurs’ Park</span> – réserve privée de lémuriens.</p><div class="lieu-images"><img src="images/lemurep.jpeg"><img src="images/lemures.jpeg"></div></div>
+      <div class="lieu-box"><p><span class="lieu">Parc Botanique et Zoologique de Tsimbazaza</span> – biodiversité malgache.</p><div class="lieu-images"><img src="images/tsimbazaza.jpeg"><img src="images/tsimbzazaz.jpeg"></div></div>
+      <div class="lieu-box"><p><span class="lieu">Mantasoa</span> – lac artificiel et vestiges industriels de Laborde.</p><div class="lieu-images"><img src="images/lacmantasoa.jpeg"><img src="images/mantasoa.jpeg"></div></div>
+      <div class="lieu-box"><p><span class="lieu">Ambatofotsy & Anjozorobe</span> – forêts humides périphériques.</p><div class="lieu-images"><img src="images/foretA.jpeg"><img src="images/forettana.jpeg"></div></div>
+
+      <h4 class="section-title">Sites balnéaires</h4>
+      <div class="lieu-box"><p><span class="lieu">Lac Mantasoa & Lac Itasy</span> – pique-nique, pêche, pirogue.</p><div class="lieu-images"><img src="images/itasylac1.jpeg"><img src="images/iatsylac.jpeg"></div></div>
+    </section>
+
+    <!-- Province Toamasina -->
+    <section class="content-box">
+      <h3 class="province-title">🌴 Province de Toamasina</h3>
+      <h4 class="section-title">Sites historiques</h4>
+      <div class="lieu-box"><p><span class="lieu">Fort Manda à Foulpointe</span> – fortification du XVIIᵉ siècle.</p><div class="lieu-images"><img src="images/foulpointe1.jpeg"><img src="images/foulpointe2.jpeg"></div></div>
+      <div class="lieu-box"><p><span class="lieu">Vestiges de la Compagnie des Indes à Tamatave</span> – ruines coloniales.</p><div class="lieu-images"><img src="images/indec.jpeg"><img src="images/inde.jpeg"></div></div>
+      <div class="lieu-box"><p><span class="lieu">Phare de l’Île aux Prunes</span> – construit par les Français.</p><div class="lieu-images"><img src="images/phare1.jpeg"><img src="images/phare2.jpeg"></div></div>
+
+      <h4 class="section-title">Sites touristiques</h4>
+      <div class="lieu-box"><p><span class="lieu">Parc national d’Andasibe-Mantadia</span> – forêt humide, Indri-Indri.</p><div class="lieu-images"><img src="images/andasibe.jpeg"><img src="images/andasibec.jpeg"></div></div>
+      <div class="lieu-box"><p><span class="lieu">Réserve d’Ivoloina</span> – zoo éducatif, sentiers botaniques.</p><div class="lieu-images"><img src="images/ivoloinapa.jpeg"><img src="images/ivoloina.jpeg"></div></div>
+      <div class="lieu-box"><p><span class="lieu">Canal des Pangalanes</span> – long canal colonial longeant la côte.</p><div class="lieu-images"><img src="images/canaldep.jpeg"><img src="images/canalpang.jpeg"></div></div>
+      <div class="lieu-box"><p><span class="lieu">Île Sainte-Marie</span> – forêts, histoire pirate, baleines.</p><div class="lieu-images"><img src="images/saintemarie.jpeg"><img src="images/saintemarie2.jpeg"></div></div>
+
+      <h4 class="section-title">Sites balnéaires</h4>
+      <div class="lieu-box"><p><span class="lieu">Foulpointe (Mahavelona)</span> – lagon protégé.</p><div class="lieu-images"><img src="images/foulpointemah.jpeg"><img src="images/foulpointmahave.jpeg"></div></div>
+      <div class="lieu-box"><p><span class="lieu">Mahambo</span> – spot de surf.</p><div class="lieu-images"><img src="images/mahamb.jpeg"><img src="images/mahambo.jpeg"></div></div>
+      <div class="lieu-box"><p><span class="lieu">Île Sainte-Marie</span> – plages de sable blanc.</p><div class="lieu-images"><img src="images/ilest.jpeg"><img src="images/stmarie.jpeg"></div></div>
+      <div class="lieu-box"><p><span class="lieu">Île aux Nattes</span> – paradis balnéaire.</p><div class="lieu-images"><img src="images/ilesaun.jpeg"><img src="images/ilesnat.jpeg"></div></div>
+    </section>
+
+    <!-- Province Fianarantsoa -->
+    <section class="content-box">
+      <h3 class="province-title">🌿 Province de Fianarantsoa</h3>
+      <h4 class="section-title">Sites historiques</h4>
+      <div class="lieu-box"><p><span class="lieu">Vieille Ville de Fianarantsoa</span> – maisons traditionnelles et cathédrale.</p><div class="lieu-images"><img src="images/fianara1.jpeg"><img src="images/fianara2.jpeg"></div></div>
+      <div class="lieu-box"><p><span class="lieu">Cathédrale d’Ambositra</span> – ville artisanale Betsileo.</p><div class="lieu-images"><img src="images/ambositract.jpeg"><img src="images/ambositra2.jpeg"></div></div>
+      <div class="lieu-box"><p><span class="lieu">Train FCE</span> – ligne ferroviaire coloniale historique.</p><div class="lieu-images"><img src="images/train2.jpeg"><img src="images/trainfce.jpeg"></div></div>
+
+      <h4 class="section-title">Sites touristiques</h4>
+      <div class="lieu-box"><p><span class="lieu">Parc national de Ranomafana</span> – forêt tropicale humide.</p><div class="lieu-images"><img src="images/ranomafana.jpeg"><img src="images/ranom.jpeg"></div></div>
+      <div class="lieu-box"><p><span class="lieu">Parc national d’Andringitra</span> – pics montagneux, Pic Boby.</p><div class="lieu-images"><img src="images/andringitra.jpeg"><img src="images/picbob.jpeg"></div></div>
+      <div class="lieu-box"><p><span class="lieu">Réserve de l’Anja</span> – lémuriens makis catta.</p><div class="lieu-images"><img src="images/anja.jpeg"><img src="images/anjare.jpeg"></div></div>
+      <div class="lieu-box"><p><span class="lieu">Ambositra</span> – capitale de l’artisanat marqueté.</p><div class="lieu-images"><img src="images/ambositra.jpeg"><img src="images/ambositra1.jpeg"></div></div>
+
+      <h4 class="section-title">Sites balnéaires</h4>
+      <div class="lieu-box"><p><span class="lieu">Manakara</span> – petite ville côtière accessible par train.</p><div class="lieu-images"><img src="images/manakar.jpeg"><img src="images/manakara.jpeg"></div></div>
+    </section>
+
+    <!-- Province Mahajanga -->
+    <section class="content-box">
+      <h3 class="province-title">🌅 Province de Mahajanga</h3>
+      <h4 class="section-title">Sites historiques</h4>
+      <div class="lieu-box"><p><span class="lieu">Vieille ville de Majunga</span> – architecture coloniale.</p><div class="lieu-images"><img src="images/majunga.jpeg"><img src="images/majplage.jpeg"></div></div>
+      <div class="lieu-box"><p><span class="lieu">Mosquée de Majunga</span> – héritage swahili et arabe.</p><div class="lieu-images"><img src="images/mosque.jpeg"><img src="images/mosqued.jpeg"></div></div>
+      <div class="lieu-box"><p><span class="lieu">Fortifications anciennes (Katsepy)</span>.</p><div class="lieu-images"><img src="images/katsepy.jpeg"><img src="images/katse.jpeg"></div></div>
+
+      <h4 class="section-title">Sites touristiques</h4>
+      <div class="lieu-box"><p><span class="lieu">Parc national d’Ankarafantsika</span> – oiseaux endémiques.</p><div class="lieu-images"><img src="images/ankarafants.jpeg"><img src="images/ankarafantsika.jpeg"></div></div>
+      <div class="lieu-box"><p><span class="lieu">Cirque Rouge</span> – formations géologiques colorées.</p><div class="lieu-images"><img src="images/cirquerou.jpeg"><img src="images/cirquerouge.jpeg"></div></div>
+      <div class="lieu-box"><p><span class="lieu">Grottes d’Anjohibe</span> – stalactites et rivières souterraines.</p><div class="lieu-images"><img src="images/gratteanjoh.jpeg"><img src="images/grottea.jpeg"></div></div>
+
+      <h4 class="section-title">Sites balnéaires</h4>
+      <div class="lieu-box"><p><span class="lieu">Plages de Majunga</span> – ambiance urbaine et festive.</p><div class="lieu-images"><img src="images/majplage.jpeg"><img src="images/majunga.jpeg"></div></div>
+      <div class="lieu-box"><p><span class="lieu">Katsepy</span> – petite plage et phare historique.</p><div class="lieu-images"><img src="images/katsepy.jpeg"><img src="images/katsep.jpeg"></div></div>
+    </section>
+
+    <!-- Province Antsiranana -->
+    <section class="content-box">
+      <h3 class="province-title">🏝 Province d’Antsiranana</h3>
+      <h4 class="section-title">Sites historiques</h4>
+      <div class="lieu-box"><p><span class="lieu">Vieille base coloniale de Diego-Suarez</span>.</p><div class="lieu-images"><img src="images/villed.jpeg"><img src="images/villediego.jpeg"></div></div>
+      <div class="lieu-box"><p><span class="lieu">Fort militaire du Cap Diego</span>.</p><div class="lieu-images"><img src="images/diegomil.jpeg"><img src="images/diegomilt.jpeg"></div></div>
+      <div class="lieu-box"><p><span class="lieu">Vestiges navals de la baie de Diego</span>.</p><div class="lieu-images"><img src="images/navadieg.jpeg"><img src="images/navadiego.jpeg"></div></div>
+
+      <h4 class="section-title">Sites touristiques</h4>
+      <div class="lieu-box"><p><span class="lieu">Parc national de la Montagne d’Ambre</span> – forêt tropicale humide.</p><div class="lieu-images"><img src="images/ambre.jpeg"><img src="images/ambre1.jpeg"></div></div>
+      <div class="lieu-box"><p><span class="lieu">Réserve spéciale de l’Ankarana</span> – Tsingy calcaires.</p><div class="lieu-images"><img src="images/ankarana.jpeg"><img src="images/anakarana3.jpeg"></div></div>
+      <div class="lieu-box"><p><span class="lieu">Les Trois Baies</span> – Sakalava, Pigeons, Dunes.</p><div class="lieu-images"><img src="images/trois.jpeg"><img src="images/trroisbais.jpeg"></div></div>
+
+      <h4 class="section-title">Sites balnéaires</h4>
+      <div class="lieu-box"><p><span class="lieu">Plage de Ramena</span> – sable blanc et eaux turquoise.</p><div class="lieu-images"><img src="images/ramena.jpeg"><img src="images/ramenap.jpeg"></div></div>
+      <div class="lieu-box"><p><span class="lieu">Mer d’Émeraude</span> – lagon spectaculaire.</p><div class="lieu-images"><img src="images/emeraude.jpeg"><img src="images/emeraude.jpeg"></div></div>
+      <div class="lieu-box"><p><span class="lieu">Nosy Be</span> – île touristique phare du nord.</p><div class="lieu-images"><img src="images/nosibe.jpeg"><img src="images/Nosibehellv.jpeg"></div></div>
+    </section>
+
+    <!-- Province Toliara -->
+    <section class="content-box">
+      <h3 class="province-title">🌞 Province de Toliara</h3>
+      <h4 class="section-title">Sites historiques</h4>
+      <div class="lieu-box"><p><span class="lieu">Ifaty</span> – village de pêcheurs Vezo, artisanat.</p><div class="lieu-images"><img src="images/ifaty.jpeg"><img src="images/ifatpecheur.jpeg"></div></div>
+      <div class="lieu-box"><p><span class="lieu">Antsokay Arboretum</span> – collection de plantes endémiques.</p><div class="lieu-images"><img src="images/antsokay.jpeg"><img src="images/antsokayar.jpeg"></div></div>
+      <div class="lieu-box"><p><span class="lieu">Vestiges de Fort Dauphin (Taolagnaro)</span>.</p><div class="lieu-images"><img src="images/fortdaup.jpeg"><img src="images/fortdauphin.jpeg"></div></div>
+
+      <h4 class="section-title">Sites touristiques</h4>
+      <div class="lieu-box"><p><span class="lieu">Parc national de l’Isalo</span> – canyons, piscines naturelles.</p><div class="lieu-images"><img src="images/isalop.jpeg"><img src="images/isalof.jpeg"></div></div>
+      <div class="lieu-box"><p><span class="lieu">Parc national de Tsimanampetsotse</span> – lacs salés et flamants roses.</p><div class="lieu-images"><img src="images/tsimanampetsotsa1.jpeg"><img src="images/tsimanampetsotsa.jpeg"></div></div>
+      <div class="lieu-box"><p><span class="lieu">Réserve de Berenty</span> – faune endémique du sud.</p><div class="lieu-images"><img src="images/berenty1.jpeg"><img src="images/berenty2.jpeg"></div></div>
+
+      <h4 class="section-title">Sites balnéaires</h4>
+      <div class="lieu-box"><p><span class="lieu">Ifaty & Mangily</span> – lagons et plages paradisiaques.</p><div class="lieu-images"><img src="images/ifatymang.jpeg"><img src="images/mangily.jpeg"></div></div>
+      <div class="lieu-box"><p><span class="lieu">Anakao</span> – village de pêcheurs et plage.</p><div class="lieu-images"><img src="images/anakaooooo.jpeg"><img src="images/anakao.jpeg"></div></div>
+      <div class="lieu-box"><p><span class="lieu">Fort Dauphin</span> – belles plages du sud-est.</p><div class="lieu-images"><img src="images/fortdaup.jpeg"><img src="images/fortdauphin.jpeg"></div></div>
+      <div class="lieu-box"><p><span class="lieu">Nosy Ve</span> – petite île au large de Tulear.</p><div class="lieu-images"><img src="images/nosivee.jpeg"><img src="images/nosivet.jpeg"></div></div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    © 2025 - Madagascar Découverte by Mikolo
+  </footer>
+
+</body>
+</html>
